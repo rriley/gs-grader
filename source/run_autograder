@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Copy the skeleton code and then their submission to the workspace directory
+rm -rf /autograder/workspace
+rm -rf /autograder/results
+mkdir /autograder/workspace 2> /dev/null
+mkdir /autograder/results 2> /dev/null
+
+# The skel_src directory should provide skeleton code used to help
+# compile the student submission.  The is useful when you want them
+# to only submit a few of the files they modified, but otherwise use
+# unmodified skeleton code.
+SKEL_SRC=/autograder/source/skeleton/
+
+# Copy the skeleton code to the workspace
+cp ${SKEL_SRC}/* /autograder/workspace
+
+# Remove changes to the Makefile
+rm -f /autograder/submission/Makefile
+
+# Copy the student submission to the workspace
+cp /autograder/submission/* /autograder/workspace
+
+cd /autograder/source
+
+python compile.py > /autograder/results/results.json
+if [ -s /autograder/results/results.json ]
+then
+	echo "Leaving"
+	exit
+fi
+
+python run_tests.py > /autograder/results/results.json
+#cat /autograder/results/results.json
