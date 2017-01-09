@@ -36,17 +36,17 @@ class TestCase(unittest.TestCase):
             os.chdir("../workspace")
 
             # Open the input file
-            input_file = open(INPUT_FILE,"r")
+            input_file = open(INPUT_FILE, "r")
+	    inp = input_file.read()
+	    input_file.close()
 
 	    # Open a temporary output file
 	    output_file = open(OUTPUT_FILE,"w")
 
             # Run the process
-	    self.stdout = ""
-	    self.stderr = ""
             proc = subprocess.Popen(EXEC_NAME.split(), stdin=subprocess.PIPE, stdout=output_file, stderr=subprocess.PIPE)
             try:
-		self.stdout, self.stderr = proc.communicate(input=inp, timeout=TIMEOUT)
+	        proc.communicate(input=inp, timeout=TIMEOUT)
             except:
                 proc.terminate()
 		# Program didn't terminate in time, this is almost always a bad submission

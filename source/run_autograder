@@ -31,4 +31,4 @@ then
 fi
 
 python run_tests.py > /autograder/results/results.json
-#cat /autograder/results/results.json
+cat /autograder/results/results.json
