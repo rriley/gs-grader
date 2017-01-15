@@ -9,10 +9,10 @@ import subprocess32 as subprocess
 
 # The file containing stdin for the program.  This means that this file
 # should contain whatever you want to type into the program as input.
-INPUT_FILE = "/autograder/source/tests/test01.input"
+INPUT_FILE = "/autograder/source/tests/test02.input"
 
 # A file containing the correct output.
-SOLUTION = "/autograder/source/tests/test01.output"
+SOLUTION = "/autograder/source/tests/test02.output"
 
 # How to run the program, basically.
 EXEC_NAME = "./prog"
@@ -30,7 +30,7 @@ class TestCase(unittest.TestCase):
 
         @weight(10)
         def test01(self):
-            """Test 1: Simple Addition"""
+            """Test 2: Simple Subtraction"""
 
             # Change to the submission dir
             os.chdir("../workspace")
@@ -54,4 +54,4 @@ class TestCase(unittest.TestCase):
 
 	    # Compare the output and the expected solution.
 	    if file_differ.diff(OUTPUT_FILE, SOLUTION):
-		self.assertEqual(0,1,'Output did not match.  Make sure your program exactly matches the first sample run given in the assignment.')
+		self.assertEqual(0,1,'Output did not match.  Make sure your program exactly matches the second sample run given in the assignment.')

@@ -54,4 +54,4 @@ class TestCase(unittest.TestCase):
 
 	    # Compare the output and the expected solution.
 	    if file_differ.diff(OUTPUT_FILE, SOLUTION):
-		self.assertEqual(0,1,'Output did not match.  Make sure your program exactly matches the first sample run given in the assignment.')
+		self.assertEqual(0,1,'Output did not match.  Make sure your program exactly matches the third sample run given in the assignment.')

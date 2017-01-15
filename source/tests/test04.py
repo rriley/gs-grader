@@ -30,7 +30,7 @@ class TestCase(unittest.TestCase):
 
         @weight(10)
         def test01(self):
-            """Test 1: Simple Addition"""
+            """Test 4: Addition with Negative Numbers"""
 
             # Change to the submission dir
             os.chdir("../workspace")
@@ -54,4 +54,4 @@ class TestCase(unittest.TestCase):
 
 	    # Compare the output and the expected solution.
 	    if file_differ.diff(OUTPUT_FILE, SOLUTION):
-		self.assertEqual(0,1,'Output did not match.  Make sure your program exactly matches the first sample run given in the assignment.')
+		self.assertEqual(0,1,'I did some addition involving negative numbers. One of the input numbers is negative, and so is the sum.')
