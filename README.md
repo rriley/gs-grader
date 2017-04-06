@@ -9,3 +9,6 @@ a new testcase and configuring it appropriately.
 
 The autograder in this repo is meant to grade a simple calculator in C.
 Check assignment.pdf for details.
+
+To generate a .zip package suitable for uploading to Gradescope, run:
+```./make_autograder.sh```
