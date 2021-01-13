@@ -11,4 +11,7 @@ The autograder in this repo is meant to grade a simple calculator in C.
 Check assignment.pdf for details.
 
 To generate a .zip package suitable for uploading to Gradescope, run:
-```./make_autograder.sh```
+```make gs```
+
+You can also run and test in a local docker image.  Try...
+```make docker-run```
