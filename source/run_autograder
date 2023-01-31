@@ -23,11 +23,11 @@ cp /autograder/submission/* /autograder/workspace
 
 cd /autograder/source
 
-python compile.py > /autograder/results/results.json
+python3 compile.py > /autograder/results/results.json
 if [ -s /autograder/results/results.json ]
 then
 	echo "Leaving"
 	exit
 fi
 
-python run_tests.py > /autograder/results/results.json
+python3 run_tests.py > /autograder/results/results.json

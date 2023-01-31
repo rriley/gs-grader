@@ -28,4 +28,4 @@ if returncode is None or returncode != 0:
     tests = []
     tests.append(test)
     outp = {"tests":tests, "score":0}
-    print json.dumps(outp)
+    print(json.dumps(outp))

@@ -1,4 +1,4 @@
-FROM gradescope/auto-builds:ubuntu-18.04
+FROM gradescope/auto-builds:ubuntu-22.04
 WORKDIR /autograder
 
 # Setup the container stuff that needs to be installed

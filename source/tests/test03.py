@@ -25,33 +25,33 @@ OUTPUT_FILE = "/tmp/out.tmp"
 TIMEOUT = 10
 
 class TestCase(unittest.TestCase):
-        def setUp(self):
-	    pass
+    def setUp(self):
+        pass
 
-        @weight(10)
-        def test01(self):
-            """Test 1: Simple Addition"""
+    @weight(10)
+    def test01(self):
+        """Test 1: Simple Addition"""
 
-            # Change to the submission dir
-            os.chdir("../workspace")
+        # Change to the submission dir
+        os.chdir("../workspace")
 
-            # Open the input file
-            input_file = open(INPUT_FILE, "r")
-	    inp = input_file.read()
-	    input_file.close()
+        # Open the input file
+        input_file = open(INPUT_FILE, "rb")
+        inp = input_file.read()
+        input_file.close()
 
-	    # Open a temporary output file
-	    output_file = open(OUTPUT_FILE,"w")
+        # Open a temporary output file
+        output_file = open(OUTPUT_FILE,"w")
 
-            # Run the process
-            proc = subprocess.Popen(EXEC_NAME.split(), stdin=subprocess.PIPE, stdout=output_file, stderr=subprocess.PIPE)
-            try:
-	        proc.communicate(input=inp, timeout=TIMEOUT)
-            except:
-                proc.terminate()
-		# Program didn't terminate in time, this is almost always a bad submission
-		self.assertEqual(0,1,'Program did not finish within %d seconds'%TIMEOUT)
+        # Run the process
+        proc = subprocess.Popen(EXEC_NAME.split(), stdin=subprocess.PIPE, stdout=output_file, stderr=subprocess.PIPE)
+        try:
+            proc.communicate(input=inp, timeout=TIMEOUT)
+        except:
+            proc.terminate()
+            # Program didn't terminate in time, this is almost always a bad submission
+            self.assertTrue(False,'Program did not finish within %d seconds'%TIMEOUT)
 
-	    # Compare the output and the expected solution.
-	    if file_differ.diff(OUTPUT_FILE, SOLUTION):
-		self.assertEqual(0,1,'Output did not match.  Make sure your program exactly matches the third sample run given in the assignment.')
+        # Compare the output and the expected solution.
+        if file_differ.diff(OUTPUT_FILE, SOLUTION):
+            self.assertTrue(False,'Output did not match.  Make sure your program exactly matches the third sample run given in the assignment.')

@@ -15,9 +15,9 @@ if __name__ == '__main__':
     # This code is a dirty hack to run the tests in alphabetical order
     test_list = []
     for s in suite:
-	for t in s:
-		for u in t:
-			test_list.append(u)
+        for t in s:
+            for u in t:
+                test_list.append(u)
     test_list = sorted(test_list, key=str)
     suite = unittest.TestSuite()
     for t in test_list:
